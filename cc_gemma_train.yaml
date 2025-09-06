@@ -29,7 +29,7 @@ finetuning_type: lora
 #dpo_label_smoothing: 0.0
 
 ### Training Arguments
-output_dir: ./home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch
 overwrite_output_dir: false
 do_train: true
 do_eval: true
