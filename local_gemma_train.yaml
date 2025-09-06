@@ -1,14 +1,14 @@
 # Gemma3 LoRA Configuration for Image Captioning DPO Training
 
 ### Model Configuration
-model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/gemma-3-4b-it  # or gemma-2-9b-it for larger model
+model_name_or_path: google/gemma-3-4b-it  # or gemma-2-9b-it for larger model
 trust_remote_code: true
-local_files_only: true
+local_files_only: false
 
 ### LoRA Configuration
 lora_target: all  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
-lora_rank: 16
-lora_alpha: 32  # Typically 2x the rank
+lora_rank: 4
+lora_alpha: 8  # Typically 2x the rank
 lora_dropout: 0.05
 #loraplus_lr_ratio: 16.0
 create_new_adapter: true
