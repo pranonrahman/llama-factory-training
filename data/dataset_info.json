@@ -1,0 +1,46 @@
+{
+    "sm-local-train": {
+        "file_name": "../data/train-local.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-local-test": {
+        "file_name": "../data/test-local.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-cc-train": {
+        "file_name": "../data/train-cc.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-cc-test": {
+        "file_name": "../data/test-cc.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    }
+}
