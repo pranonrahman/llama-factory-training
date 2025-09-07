@@ -29,7 +29,7 @@ finetuning_type: lora
 #dpo_label_smoothing: 0.0
 
 ### Training Arguments
-output_dir: ./home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch
+output_dir: ./output/gemma
 overwrite_output_dir: false
 do_train: true
 do_eval: true
@@ -49,9 +49,6 @@ learning_rate: 0.00005
 
 # Optimization
 optim: adamw_torch
-adam_beta1: 0.9
-adam_beta2: 0.999
-max_grad_norm: 1.0
 
 ### Logging and Evaluation
 logging_steps: 10
@@ -62,7 +59,7 @@ save_strategy: steps
 save_total_limit: 3
 metric_for_best_model: eval_loss
 greater_is_better: false
-load_best_model_at_end: true
+#load_best_model_at_end: true
 
 ### Generation Configuration (for evaluation)
 do_sample: true
