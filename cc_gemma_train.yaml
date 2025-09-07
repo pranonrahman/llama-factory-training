@@ -28,7 +28,7 @@ finetuning_type: lora
 #dpo_label_smoothing: 0.0
 
 ### Training Arguments
-output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch-full
 overwrite_output_dir: false
 do_train: true
 do_eval: true
@@ -86,7 +86,7 @@ gradient_checkpointing: true
 #include_num_input_tokens_seen: false
 #neftune_noise_alpha: 0  # Set to 5-15 if you want NEFTune
 #report_to: wandb  # or "tensorboard", "none"
-run_name: gemma3-1-epoch
+run_name: gemma3-1-epoch-full
 seed: 42
 
 ### Evaluation Dataset (optional)
