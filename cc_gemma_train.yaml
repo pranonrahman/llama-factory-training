@@ -16,7 +16,7 @@ create_new_adapter: true
 dataset: sm-cc-train  # Name from dataset_info.json
 template: gemma3  # Use Gemma template
 cutoff_len: 512   # Maximum sequence length
-max_samples: 50   # Limit training samples if needed
+#max_samples: 50   # Limit training samples if needed
 #overwrite_cache: false
 preprocessing_num_workers: 8
 
