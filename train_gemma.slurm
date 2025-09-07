@@ -13,7 +13,7 @@
 # 1. Load required modules
 # -----------------------------
 
-module load python/3.13
+module load python/3.11.5
 module load cuda/12.6
 module load scipy-stack/2023b
 module load arrow/21.0.0
@@ -38,4 +38,6 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 # 5. Run training
 # -----------------------------
-llamafactory-cli train .\gemma_train.yaml
+export DISABLE_VERSION_CHECK=1
+
+llamafactory-cli train /home/pranon/projects/def-tahmedge/pranon/llama-factory-training/cc_gemma_train.yaml

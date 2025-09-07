@@ -3,7 +3,6 @@
 ### Model Configuration
 model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/gemma-3-4b-it  # or gemma-2-9b-it for larger model
 trust_remote_code: true
-local_files_only: true
 
 ### LoRA Configuration
 lora_target: all  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
@@ -43,33 +42,27 @@ num_train_epochs: 1
 
 # Learning rate and scheduler
 learning_rate: 0.00005
-#lr_scheduler_type: cosine
-#warmup_ratio: 0.03
-#weight_decay: 0.01
 
 # Optimization
 optim: adamw_torch
-adam_beta1: 0.9
-adam_beta2: 0.999
-max_grad_norm: 1.0
 
 ### Logging and Evaluation
 logging_steps: 10
-save_steps: 5000
-eval_steps: 5000
+save_steps: 500
+eval_steps: 500
 #evaluation_strategy: steps
 save_strategy: steps
-save_total_limit: 3
+save_total_limit: 20
 metric_for_best_model: eval_loss
 greater_is_better: false
-load_best_model_at_end: true
+# load_best_model_at_end: true
 
 ### Generation Configuration (for evaluation)
 do_sample: true
 temperature: 0.4
 top_p: 0.9
 top_k: 50
-max_new_tokens: 64
+max_new_tokens: 512
 
 ### System Configuration
 dataloader_num_workers: 4
