@@ -3,7 +3,7 @@
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
-#SBATCH --time=00-30:00           # walltime (DD-HH:MM)
+#SBATCH --time=00-00:30           # walltime (DD-HH:MM)
 #SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3270/%x-%j.out
 #SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3270/%x-%j.err
 #SBATCH --mail-user=raianrahman@iut-dhaka.edu
