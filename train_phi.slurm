@@ -40,4 +40,4 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 export DISABLE_VERSION_CHECK=1
 
-llamafactory-cli train /home/pranon/projects/def-tahmedge/pranon/llama-factory-training/cc_phi_train.yaml
+llamafactory-cli train /home/pranon/projects/def-tahmedge/pranon/llama-factory-training/cc_phi35_train.yaml
