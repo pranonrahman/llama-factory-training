@@ -1,0 +1,96 @@
+# Qwen 2 7b LoRA Configuration for Image Captioning DPO Training
+
+### Model Configuration
+model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/Qwen2-VL-7B-Instruct  
+trust_remote_code: true
+
+### LoRA Configuration
+lora_target: all  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+lora_rank: 16
+lora_alpha: 32  # Typically 2x the rank
+lora_dropout: 0.05
+#loraplus_lr_ratio: 16.0
+create_new_adapter: true
+
+### Dataset Configuration
+dataset: sm-cc-train  # Name from dataset_info.json
+template: qwen2_vl  # Use Qwen2 template
+cutoff_len: 512   # Maximum sequence length
+#max_samples: 50   # Limit training samples if needed
+#overwrite_cache: false
+preprocessing_num_workers: 8
+
+### Training Configuration
+stage: dpo  # DPO training stage
+finetuning_type: lora
+#dpo_beta: 0.1  # DPO beta parameter (lower = less aggressive)
+#dpo_loss: sigmoid  # or "hinge", "ipo", "kto_pair"
+#dpo_label_smoothing: 0.0
+
+### Training Arguments
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen2_7bFull
+overwrite_output_dir: false
+do_train: true
+do_eval: true
+do_predict: true
+
+# Training hyperparameters
+per_device_train_batch_size: 4  # Adjust based on GPU memory
+per_device_eval_batch_size: 4
+gradient_accumulation_steps: 2  # Effective batch size = 2 * 8 = 16
+num_train_epochs: 1
+
+# Learning rate and scheduler
+learning_rate: 0.00005
+
+# Optimization
+optim: adamw_torch
+
+### Logging and Evaluation
+logging_steps: 10
+save_steps: 500
+eval_steps: 500
+#evaluation_strategy: steps
+save_strategy: steps
+save_total_limit: 20
+metric_for_best_model: eval_loss
+greater_is_better: false
+# load_best_model_at_end: true
+
+### Generation Configuration (for evaluation)
+do_sample: true
+temperature: 0.4
+top_p: 0.9
+top_k: 50
+max_new_tokens: 512
+
+### System Configuration
+dataloader_num_workers: 4
+remove_unused_columns: false
+#group_by_length: true
+dataloader_pin_memory: true
+
+# Mixed precision training
+fp16: false  # Set to true if using older GPUs
+bf16: true   # Set to false if fp16 is true
+
+# Gradient checkpointing for memory efficiency
+gradient_checkpointing: true
+
+### Multimodal Configuration
+# Vision model settings (automatically handled by the template)
+# freeze_vision_tower: false
+# mm_projector_lr: 2e-5
+
+### Additional Settings
+#include_num_input_tokens_seen: false
+#neftune_noise_alpha: 0  # Set to 5-15 if you want NEFTune
+#report_to: wandb  # or "tensorboard", "none"
+run_name: Qwen2_7bFull-1-epoch-full
+seed: 42
+
+### Evaluation Dataset (optional)
+eval_dataset: sm-cc-test  # If you have a separate eval set
+
+### Resume Training (optional)
+# resume_from_checkpoint: ./saves/gemma3-image-caption-lora/checkpoint-1000
