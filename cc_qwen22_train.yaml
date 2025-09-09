@@ -15,7 +15,7 @@ create_new_adapter: true
 ### Dataset Configuration
 dataset: sm-cc-train  # Name from dataset_info.json
 template: qwen2_vl  # Use Qwen2 template
-cutoff_len: 512   # Maximum sequence length
+cutoff_len: 1024   # Maximum sequence length
 #max_samples: 50   # Limit training samples if needed
 #overwrite_cache: false
 preprocessing_num_workers: 8
