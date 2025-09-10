@@ -1,23 +1,22 @@
 # Gemma3 LoRA Configuration for Image Captioning DPO Training
 
 ### Model Configuration
-model_name_or_path: google/gemma-3-4b-it  # or gemma-2-9b-it for larger model
+model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/gemma-3-4b-it
 trust_remote_code: true
-local_files_only: false
 
 ### LoRA Configuration
-lora_target: all  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
-lora_rank: 4
-lora_alpha: 8  # Typically 2x the rank
+lora_target: ["q_proj", "v_proj", "o_proj"]  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+lora_rank: 16
+lora_alpha: 32  # Typically 2x the rank
 lora_dropout: 0.05
 #loraplus_lr_ratio: 16.0
 create_new_adapter: true
 
 ### Dataset Configuration
-dataset: sm-local-train  # Name from dataset_info.json
+dataset: sm-cc-train-1000
 template: gemma3  # Use Gemma template
 cutoff_len: 512   # Maximum sequence length
-max_samples: 50   # Limit training samples if needed
+#max_samples: 50   # Limit training samples if needed
 #overwrite_cache: false
 preprocessing_num_workers: 8
 
@@ -29,44 +28,40 @@ finetuning_type: lora
 #dpo_label_smoothing: 0.0
 
 ### Training Arguments
-output_dir: ./output/gemma
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-3-epoch-1000
 overwrite_output_dir: false
 do_train: true
 do_eval: true
-
 
 # Training hyperparameters
 per_device_train_batch_size: 4  # Adjust based on GPU memory
 per_device_eval_batch_size: 4
 gradient_accumulation_steps: 2  # Effective batch size = 2 * 8 = 16
-num_train_epochs: 1
+num_train_epochs: 3
 
 # Learning rate and scheduler
-learning_rate: 0.00005
-#lr_scheduler_type: cosine
-#warmup_ratio: 0.03
-#weight_decay: 0.01
+learning_rate: 0.000001
 
 # Optimization
 optim: adamw_torch
 
 ### Logging and Evaluation
 logging_steps: 10
-save_steps: 5000
-eval_steps: 5000
+save_steps: 1000
+eval_steps: 1000
 #evaluation_strategy: steps
 save_strategy: steps
-save_total_limit: 3
+save_total_limit: 20
 metric_for_best_model: eval_loss
 greater_is_better: false
-#load_best_model_at_end: true
+# load_best_model_at_end: true
 
 ### Generation Configuration (for evaluation)
 do_sample: true
 temperature: 0.4
 top_p: 0.9
 top_k: 50
-max_new_tokens: 64
+max_new_tokens: 512
 
 ### System Configuration
 dataloader_num_workers: 4
@@ -90,11 +85,11 @@ gradient_checkpointing: true
 #include_num_input_tokens_seen: false
 #neftune_noise_alpha: 0  # Set to 5-15 if you want NEFTune
 #report_to: wandb  # or "tensorboard", "none"
-run_name: gemma3-1-epoch
+run_name: gemma3-3-epoch-1000
 seed: 42
 
 ### Evaluation Dataset (optional)
-eval_dataset: sm-local-test  # If you have a separate eval set
+eval_dataset: sm-cc-test  # If you have a separate eval set
 
 ### Resume Training (optional)
 # resume_from_checkpoint: ./saves/gemma3-image-caption-lora/checkpoint-1000

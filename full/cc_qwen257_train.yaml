@@ -1,11 +1,11 @@
-# Qwen 2 7b LoRA Configuration for Image Captioning DPO Training
+# Qwen 2.5 7b LoRA Configuration for Image Captioning DPO Training
 
 ### Model Configuration
-model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/Qwen2-VL-7B-Instruct  
+model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/Qwen2.5-VL-7B-Instruct  
 trust_remote_code: true
 
 ### LoRA Configuration
-lora_target: all  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+lora_target: ["q_proj", "v_proj", "o_proj"]  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
 lora_rank: 16
 lora_alpha: 32  # Typically 2x the rank
 lora_dropout: 0.05
@@ -13,7 +13,7 @@ lora_dropout: 0.05
 create_new_adapter: true
 
 ### Dataset Configuration
-dataset: sm-cc-train  # Name from dataset_info.json
+dataset: sm-cc-train-full  # Name from dataset_info.json
 template: qwen2_vl  # Use Qwen2 template
 cutoff_len: 1024   # Maximum sequence length
 #max_samples: 50   # Limit training samples if needed
@@ -28,11 +28,11 @@ finetuning_type: lora
 #dpo_label_smoothing: 0.0
 
 ### Training Arguments
-output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen2_7bFull
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen25_7bFull-full-ds
 overwrite_output_dir: false
 do_train: true
 do_eval: true
-do_predict: true
+
 
 # Training hyperparameters
 per_device_train_batch_size: 4  # Adjust based on GPU memory
@@ -41,7 +41,7 @@ gradient_accumulation_steps: 2  # Effective batch size = 2 * 8 = 16
 num_train_epochs: 1
 
 # Learning rate and scheduler
-learning_rate: 0.00005
+learning_rate: 0.000001
 
 # Optimization
 optim: adamw_torch
@@ -86,7 +86,7 @@ gradient_checkpointing: true
 #include_num_input_tokens_seen: false
 #neftune_noise_alpha: 0  # Set to 5-15 if you want NEFTune
 #report_to: wandb  # or "tensorboard", "none"
-run_name: Qwen2_7bFull-1-epoch-full
+run_name: Qwen25_7bFull-1-epoch-full
 seed: 42
 
 ### Evaluation Dataset (optional)

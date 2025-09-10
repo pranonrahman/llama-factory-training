@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=phi_35_1_epoch
+#SBATCH --job-name=llama_32_1_epoch_1000
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
-#SBATCH --time=00-03:00           # walltime (DD-HH:MM)
-#SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/phi35/%x-%j.out
-#SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/phi35/%x-%j.err
+#SBATCH --time=01-00:00           # walltime (DD-HH:MM)
+#SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.out
+#SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.err
 #SBATCH --mail-user=raianrahman@iut-dhaka.edu
 #SBATCH --mail-type=ALL
 
@@ -40,4 +40,4 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 export DISABLE_VERSION_CHECK=1
 
-llamafactory-cli train /home/pranon/projects/def-tahmedge/pranon/llama-factory-training/cc_phi35_train.yaml
+llamafactory-cli train /home/pranon/projects/def-tahmedge/pranon/llama-factory-training/max_1000/cc_llama_train.yaml
