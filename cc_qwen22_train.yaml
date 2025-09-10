@@ -7,8 +7,8 @@ trust_remote_code: true
 ### LoRA Configuration
 lora_target: all  # Target all linear layers, or specify: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
 lora_rank: 16
-lora_alpha: 32  # Typically 2x the rank
-lora_dropout: 0.05
+lora_alpha: 16  # Typically 2x the rank
+lora_dropout: 0.1
 #loraplus_lr_ratio: 16.0
 create_new_adapter: true
 
@@ -28,7 +28,7 @@ finetuning_type: lora
 #dpo_label_smoothing: 0.0
 
 ### Training Arguments
-output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen2_2bFull
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen2_2bFull_1
 overwrite_output_dir: false
 do_train: true
 do_eval: true
@@ -41,7 +41,7 @@ gradient_accumulation_steps: 2  # Effective batch size = 2 * 8 = 16
 num_train_epochs: 1
 
 # Learning rate and scheduler
-learning_rate: 0.00005
+learning_rate: 0.000005
 
 # Optimization
 optim: adamw_torch

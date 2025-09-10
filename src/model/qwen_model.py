@@ -13,10 +13,14 @@ def generate_captions_batch(model, processor, batch_data):
 
     try:
         generation_config = GenerationConfig(
-            max_new_tokens=512,
-            # early_stopping=True,
-            do_sample=False,
+            max_new_tokens=256,        # captions don’t need 512
+            do_sample=True,
+            top_p=0.9,
+            temperature=0.7,
+            repetition_penalty=1.1,
         )
+
+
         generated_ids = model.generate(
             **batch_data['inputs'],
             generation_config=generation_config,
