@@ -1,6 +1,6 @@
 {
-    "sm-local-train": {
-        "file_name": "../data/train-local.json",
+    "sm-local-train-full": {
+        "file_name": "../data/train-local-full.json",
         "ranking": true,
         "columns": {
             "prompt": "instruction",
@@ -21,8 +21,41 @@
             "images": "images"
         }
     },
-    "sm-cc-train": {
-        "file_name": "../data/train-cc.json",
+    "sm-local-train-10000": {
+        "file_name": "../data/train-local-10000.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-local-train-5000": {
+        "file_name": "../data/train-local-5000.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-local-train-1000": {
+        "file_name": "../data/train-local-1000.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-cc-train-full": {
+        "file_name": "../data/train-cc-full.json",
         "ranking": true,
         "columns": {
             "prompt": "instruction",
@@ -34,6 +67,39 @@
     },
     "sm-cc-test": {
         "file_name": "../data/test-cc.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-cc-train-10000": {
+        "file_name": "../data/train-cc-10000.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-cc-train-5000": {
+        "file_name": "../data/train-cc-5000.json",
+        "ranking": true,
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "chosen": "chosen",
+            "rejected": "rejected",
+            "images": "images"
+        }
+    },
+    "sm-cc-train-1000": {
+        "file_name": "../data/train-cc-1000.json",
         "ranking": true,
         "columns": {
             "prompt": "instruction",
