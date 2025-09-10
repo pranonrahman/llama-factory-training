@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
 #SBATCH --time=01-00:00           # walltime (DD-HH:MM)
-#SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-full/%x-%j.out
-#SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-full/%x-%j.err
+#SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.out
+#SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.err
 #SBATCH --mail-user=raianrahman@iut-dhaka.edu
 #SBATCH --mail-type=ALL
 
