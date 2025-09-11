@@ -1,4 +1,8 @@
-from transformers import AutoModelForImageTextToText, Gemma3ForConditionalGeneration
+from transformers import (
+    AutoModelForImageTextToText,
+    Gemma3ForConditionalGeneration,
+    MllamaForConditionalGeneration,
+)
 
 MODEL_REGISTRY = {
     "Qwen2-VL-2B-Instruct": {
@@ -48,5 +52,12 @@ MODEL_REGISTRY = {
         "batch_size": 48,
         "generator_class": Gemma3ForConditionalGeneration,
     },
-    "Llama-32-11B-Vision": {"base_model_path": "", "trained_model_path": ""},
+    "Llama-32-11B-Vision": {
+        "base_model_path": "/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision",
+        "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-3-epoch-1000/",
+        "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
+        "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-3-epoch-1000/captions.json",
+        "batch_size": 48,
+        "generator_class": MllamaForConditionalGeneration,
+    },
 }
