@@ -29,7 +29,7 @@ MODEL_REGISTRY = {
         "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-3-epoch-1000",
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-3-epoch-1000/captions.json",
-        "batch_size": 1,
+        "batch_size": 48,
         "generator_class": Gemma3ForConditionalGeneration,
     },
     "gemma-3-4b-it-10000": {
@@ -37,7 +37,7 @@ MODEL_REGISTRY = {
         "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-3-epoch-10000",
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-3-epoch-10000/captions.json",
-        "batch_size": 1,
+        "batch_size": 48,
         "generator_class": Gemma3ForConditionalGeneration,
     },
     "gemma-3-4b-it-full": {
@@ -45,7 +45,7 @@ MODEL_REGISTRY = {
         "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch-full-ds",
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gemma3-1-epoch-full-ds/captions.json",
-        "batch_size": 1,
+        "batch_size": 48,
         "generator_class": Gemma3ForConditionalGeneration,
     },
     "Llama-32-11B-Vision": {"base_model_path": "", "trained_model_path": ""},
