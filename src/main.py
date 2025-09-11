@@ -5,7 +5,7 @@ import json
 import torch
 
 from src.dataset.simplify_me_dataset import SimplifyMeDataset
-from src.model.qwen_model import get_model, generate_output
+from src.model.gen_model import get_model, generate_output
 from src.model_registry import MODEL_REGISTRY
 
 
