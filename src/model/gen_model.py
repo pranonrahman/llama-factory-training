@@ -53,7 +53,7 @@ def generate_output(
         dataset,
         batch_size=config["batch_size"],
         shuffle=False,
-        collate_fn=lambda b: collate_fn(b, processor),
+        collate_fn=lambda b: collate_fn(b, processor, config),
     )
 
     idx = 0
