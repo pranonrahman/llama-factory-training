@@ -6,7 +6,8 @@ def collate_fn(batch, processor, config):
     images = [getimages(item['images']) for item in batch]
 
     if config['base_model_path'] != '/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision':
-        prompts = [get_conversational_formatted_messages(item["instruction"], "user")
+        prompts = [processor.apply_chat_template(get_conversational_formatted_messages(item["instruction"], "user"),
+                                                 add_generation_prompt=True)
                    for item in batch]
     else:
         prompts = [
