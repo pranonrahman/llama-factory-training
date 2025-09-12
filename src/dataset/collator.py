@@ -5,7 +5,7 @@ def collate_fn(batch, processor, config):
     entries = [item for item in batch]
     images = [getimages(item['images']) for item in batch]
 
-    if config['base_model_path'] == '/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision':
+    if config['base_model_path'] != '/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision':
         prompts = [get_conversational_formatted_messages(item["instruction"], "user")
                    for item in batch]
     else:
