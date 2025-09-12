@@ -14,19 +14,17 @@ def collate_fn(batch, processor, config):
             f"<|image|><|begin_of_text|>{item["instruction"]}" for item in batch
         ]
 
+        print(prompts)
+
     ids = [item['id'] for item in batch]
 
     # Process batch
-    try:
-        inputs = processor(text=prompts, images=images, return_tensors='pt', padding=True)
-        inputs = {k: v.to("cuda") for k, v in inputs.items()}
+    inputs = processor(text=prompts, images=images, return_tensors='pt', padding=True)
+    inputs = {k: v.to("cuda") for k, v in inputs.items()}
 
-        return {
-            'entries': entries,
-            'inputs': inputs,
-            'ids': ids
-        }
-    except Exception as e:
-        # Fallback to smaller batch if memory issues
-        print(f"Batch processing failed: {e}. Falling back to individual processing.")
-        return None
+    return {
+        'entries': entries,
+        'inputs': inputs,
+        'ids': ids
+    }
+
