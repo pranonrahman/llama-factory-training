@@ -11,39 +11,33 @@ from src.dataset.collator import collate_fn
 def generate_captions_batch(model, processor, batch_data):
     model.eval()
 
-    try:
-        generation_config = GenerationConfig(
-            max_new_tokens=256,  # captions don’t need 512
-            do_sample=True,
-            top_p=0.9,
-            temperature=0.7,
-            repetition_penalty=1.1,
+    generation_config = GenerationConfig(
+        max_new_tokens=256,  # captions don’t need 512
+        do_sample=True,
+        top_p=0.9,
+        temperature=0.7,
+        repetition_penalty=1.1,
+    )
+
+    generated_ids = model.generate(
+        **batch_data["inputs"],
+        generation_config=generation_config,
+        pad_token_id=processor.tokenizer.pad_token_id,
+        eos_token_id=processor.tokenizer.eos_token_id,
+    )
+
+    input_length = batch_data["inputs"]["input_ids"].shape[-1]
+    new_tokens_batch = generated_ids[:, input_length:]
+
+    # Decode responses
+    responses = []
+    for new_tokens in new_tokens_batch:
+        response_text = processor.tokenizer.decode(
+            new_tokens, skip_special_tokens=True
         )
+        responses.append(response_text.strip())
 
-        generated_ids = model.generate(
-            **batch_data["inputs"],
-            generation_config=generation_config,
-            pad_token_id=processor.tokenizer.pad_token_id,
-            eos_token_id=processor.tokenizer.eos_token_id,
-        )
-
-        input_length = batch_data["inputs"]["input_ids"].shape[-1]
-        new_tokens_batch = generated_ids[:, input_length:]
-
-        # Decode responses
-        responses = []
-        for new_tokens in new_tokens_batch:
-            response_text = processor.tokenizer.decode(
-                new_tokens, skip_special_tokens=True
-            )
-            responses.append(response_text.strip())
-
-        return responses
-
-    except torch.cuda.OutOfMemoryError:
-        print("GPU memory exceeded during generation. Try reducing batch size.")
-        torch.cuda.empty_cache()
-        return None
+    return responses
 
 
 def generate_output(
