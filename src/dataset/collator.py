@@ -1,12 +1,20 @@
 from src.dataset.simplify_me_dataset import getimages, get_conversational_formatted_messages
 
 
-def collate_fn(batch, processor):
+def collate_fn(batch, processor, config):
     entries = [item for item in batch]
     images = [getimages(item['images']) for item in batch]
-    prompts = [
-        processor.apply_chat_template(
-            get_conversational_formatted_messages(item["instruction"], "user"), add_generation_prompt=True) for item in batch]
+
+    if config['base_model_path'] == '/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision':
+        prompts = [get_conversational_formatted_messages(item["instruction"], "user")
+                   for item in batch]
+    else:
+        prompts = [
+            processor.apply_chat_template(
+                get_conversational_formatted_messages(item["instruction"], "user"), add_generation_prompt=True)
+            for item in batch
+        ]
+
     ids = [item['id'] for item in batch]
 
     # Process batch
