@@ -10,9 +10,7 @@ def collate_fn(batch, processor, config):
                    for item in batch]
     else:
         prompts = [
-            processor.apply_chat_template(
-                get_conversational_formatted_messages(item["instruction"], "user"), add_generation_prompt=True)
-            for item in batch
+            f"<|image|><|begin_of_text|>{item["instruction"]}" for item in batch
         ]
 
     ids = [item['id'] for item in batch]

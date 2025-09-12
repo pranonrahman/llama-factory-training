@@ -33,4 +33,4 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 # 5. Run training
 # -----------------------------
-accelerate launch -m src.main --model_name "Llama-32-11B-Vision"
+accelerate launch -m src.main --model_name "Llama-32-11B-Vision-1000-trained"
