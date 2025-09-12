@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=llama_32_1_epoch_full
+#SBATCH --job-name=llama_instruct_32_1_epoch_full
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
-#SBATCH --time=01-00:00           # walltime (DD-HH:MM)
+#SBATCH --time=00-18:00           # walltime (DD-HH:MM)
 #SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.out
 #SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.err
 #SBATCH --mail-user=raianrahman@iut-dhaka.edu
