@@ -10,26 +10,25 @@ from src.model_registry import MODEL_REGISTRY
 
 
 def main(config):
-    processor, model = get_model(config)
-    model = model.to('cuda').eval()
-
     with open(config['dataset_path'], 'r', encoding='utf-8') as f:
         processed_dataset = json.load(f)
         dataset = SimplifyMeDataset(processed_dataset)
 
-    processed_dataset = generate_output(config, dataset, processed_dataset, model, processor, False)
-    del model, processor
-    torch.cuda.empty_cache()
-    gc.collect()
+    if not config["trained"]:
+        processor, model = get_model(config)
+        model = model.to('cuda').eval()
 
-    processor, model = get_model(config, True)
-    model = model.to('cuda').eval()
+        processed_dataset = generate_output(config, dataset, processed_dataset, model, processor, False)
+    else:
+        processor, model = get_model(config, True)
+        model = model.to('cuda').eval()
 
-    with open(config['dataset_path'], 'r', encoding='utf-8') as f:
-        dataset = SimplifyMeDataset(json.load(f))
-        # processed_dataset = copy.deepcopy(dataset)
+        with open(config['dataset_path'], 'r', encoding='utf-8') as f:
+            processed_dataset = json.load(f)
+            dataset = SimplifyMeDataset(processed_dataset)
 
-    processed_dataset = generate_output(config, dataset, processed_dataset, model, processor, True)
+        processed_dataset = generate_output(config, dataset, processed_dataset, model, processor, True)
+
     del model, processor
     torch.cuda.empty_cache()
     gc.collect()

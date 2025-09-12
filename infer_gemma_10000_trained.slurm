@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=gen_gemma_full
+#SBATCH --job-name=gen_gemma_10000
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
@@ -33,4 +33,4 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 # 5. Run training
 # -----------------------------
-accelerate launch -m src.main --model_name "gemma-3-4b-it-full"
+accelerate launch -m src.main --model_name "gemma-3-4b-it-10000-trained"
