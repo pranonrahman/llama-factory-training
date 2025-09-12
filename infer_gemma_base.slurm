@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=gen_gemma_1000
+#SBATCH --job-name=gen_gemma_1000_base
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM

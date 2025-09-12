@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=gen_gemma_full
+#SBATCH --job-name=gen_gemma_full_trained
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
-#SBATCH --time=0-03:00            # walltime (D-HH:MM)
+#SBATCH --time=0-05:00            # walltime (D-HH:MM)
 #SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.out
 #SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.err
 #SBATCH --mail-user=raianrahman@iut-dhaka.edu
