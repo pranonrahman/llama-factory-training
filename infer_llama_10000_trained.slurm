@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=gen_llama_base
+#SBATCH --job-name=gen_llama_trained_10000
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
@@ -33,4 +33,4 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 # 5. Run training
 # -----------------------------
-accelerate launch -m src.main --model_name "Llama-32-11B-Vision-base"
+accelerate launch -m src.main --model_name "Llama-32-11B-Vision-10000-trained"

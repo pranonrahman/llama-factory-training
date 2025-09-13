@@ -1,5 +1,4 @@
 from transformers import (
-    AutoModelForImageTextToText,
     Gemma3ForConditionalGeneration,
     MllamaForConditionalGeneration,
 )
@@ -55,6 +54,24 @@ MODEL_REGISTRY = {
         "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-3-epoch-1000/",
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Llama-32-11B-Vision-1000-trained.json",
+        "batch_size": 16,
+        "generator_class": MllamaForConditionalGeneration,
+        "trained": True,
+    },
+    "Llama-32-11B-Vision-10000-trained": {
+        "base_model_path": "/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision",
+        "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-3-epoch-1000/",
+        "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
+        "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Llama-32-11B-Vision-10000-trained.json",
+        "batch_size": 16,
+        "generator_class": MllamaForConditionalGeneration,
+        "trained": True,
+    },
+    "Llama-32-11B-Vision-full-trained": {
+        "base_model_path": "/home/pranon/scratch/def-tahmedge/pretrained_models/Llama-3.2-11B-Vision",
+        "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/llama32-3-epoch-1000/",
+        "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
+        "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Llama-32-11B-Vision-full-trained.json",
         "batch_size": 16,
         "generator_class": MllamaForConditionalGeneration,
         "trained": True,
