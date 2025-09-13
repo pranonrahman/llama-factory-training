@@ -16,7 +16,7 @@ def generate_captions_batch(model, processor, batch_data):
         do_sample=True,
         top_p=0.9,
         temperature=0.7,
-        repetition_penalty=1.1,
+        # repetition_penalty=1.1,
     )
 
     generated_ids = model.generate(
