@@ -11,7 +11,7 @@ from src.model_registry import MODEL_REGISTRY
 
 def main(config):
     with open(config['dataset_path'], 'r', encoding='utf-8') as f:
-        processed_dataset = json.load(f)
+        processed_dataset = json.load(f)[:50]
         dataset = SimplifyMeDataset(processed_dataset)
 
     if not config["trained"]:
@@ -24,7 +24,7 @@ def main(config):
         model = model.to('cuda').eval()
 
         with open(config['dataset_path'], 'r', encoding='utf-8') as f:
-            processed_dataset = json.load(f)
+            processed_dataset = json.load(f)[:50]
             dataset = SimplifyMeDataset(processed_dataset)
 
         processed_dataset = generate_output(config, dataset, processed_dataset, model, processor, True)
