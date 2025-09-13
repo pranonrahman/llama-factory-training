@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=gen_qwen_25_7b_1_epoch_full
+#SBATCH --job-name=gen_qwen27_10000_trained
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
-#SBATCH --time=0-01:00            # walltime (D-HH:MM)
-#SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/qwen25_7b/%x-%j.out
-#SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/qwen25_7b/%x-%j.err
+#SBATCH --time=0-08:00            # walltime (D-HH:MM)
+#SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.out
+#SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.err
 #SBATCH --mail-user=raianrahman@iut-dhaka.edu
 #SBATCH --mail-type=ALL
 
@@ -33,4 +33,4 @@ cd /home/pranon/projects/def-tahmedge/pranon/llama-factory-training
 # -----------------------------
 # 5. Run training
 # -----------------------------
-accelerate launch -m src.main --model_name "Qwen25-VL-7B-Instruct"
+accelerate launch -m src.main --model_name "Qwen2-VL-7B-Instruct-10000-trained"
