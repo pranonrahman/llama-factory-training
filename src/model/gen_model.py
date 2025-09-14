@@ -65,6 +65,10 @@ def generate_output(
                     f'{"trained" if trained_model else "base"}_model_output'
                 ] = output
                 idx += 1
+        
+        # Clear batch from GPU immediately
+        del batch['inputs']
+        torch.cuda.empty_cache()
 
     return processed_dataset
 
