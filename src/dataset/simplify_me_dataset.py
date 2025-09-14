@@ -4,8 +4,8 @@ from torch.utils.data import Dataset
 
 def get_image(image_path):
     with Image.open(image_path) as image:
-        if max(image.size) > 512:
-            image.thumbnail((512, 512), Image.Resampling.LANCZOS)
+        if max(image.size) > 1024:
+            image.thumbnail((1024, 1024), Image.Resampling.LANCZOS)
 
         return image.convert("RGB")
 
