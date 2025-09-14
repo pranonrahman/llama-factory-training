@@ -2,15 +2,18 @@ from PIL import Image
 from torch.utils.data import Dataset
 
 
-def getimage(image_path):
+def get_image(image_path):
     with Image.open(image_path) as image:
+        if max(image.size) > 512:
+            image.thumbnail((512, 512), Image.Resampling.LANCZOS)
+
         return image.convert("RGB")
 
 
-def getimages(image_paths):
+def get_images(image_paths):
     images = []
     for image_path in image_paths:
-        images.append(getimage(image_path))
+        images.append(get_image(image_path))
 
     return images
 
@@ -26,31 +29,28 @@ class SimplifyMeDataset(Dataset):
         return self.data_entries[idx]
 
 
-def get_conversational_formatted_messages(text: str, role='user'):
-    if role == 'user':
+def get_conversational_formatted_messages(text: str, role="user"):
+    if role == "user":
         return [
             {
-                'content': [
+                "content": [
                     {
-                        'type': 'text',
-                        'text': text,
+                        "type": "text",
+                        "text": text,
                     },
                     {
-                        'type': 'image',
-                        'text': None,
-                    }
+                        "type": "image",
+                        "text": None,
+                    },
                 ],
-                'role': role,
+                "role": role,
             }
         ]
     else:
         return [
             {
                 "content": [
-                    {
-                        "type": "text",
-                        "text": text
-                    },
+                    {"type": "text", "text": text},
                 ],
                 "role": role,
             }

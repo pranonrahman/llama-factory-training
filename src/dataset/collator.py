@@ -1,12 +1,12 @@
 from src.dataset.simplify_me_dataset import (
-    getimages,
+    get_images,
     get_conversational_formatted_messages,
 )
 
 
 def collate_fn(batch, processor, config):
     entries = [item for item in batch]
-    images = [getimages(item["images"]) for item in batch]
+    images = [get_images(item["images"]) for item in batch]
 
     prompts = [
         processor.apply_chat_template(
@@ -24,8 +24,8 @@ def collate_fn(batch, processor, config):
         images=images,
         return_tensors="pt",
         padding=True,
-        max_length=2048,
-        truncation=True,
+        # max_length=2048,
+        # truncation=True,
     )
     inputs = {k: v.to("cuda") for k, v in inputs.items()}
 
