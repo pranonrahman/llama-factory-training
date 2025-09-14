@@ -1,6 +1,6 @@
 from transformers import (
     Gemma3ForConditionalGeneration,
-    MllamaForConditionalGeneration, Qwen2VLForConditionalGeneration,
+    MllamaForConditionalGeneration, Qwen2VLForConditionalGeneration, Qwen2_5_VLForConditionalGeneration,
 )
 
 MODEL_REGISTRY = {
@@ -154,7 +154,7 @@ MODEL_REGISTRY = {
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Qwen25-VL-7B-Instruct-base.json",
         "batch_size": 24,
-        "generator_class": Qwen2VLForConditionalGeneration,
+        "generator_class": Qwen2_5_VLForConditionalGeneration,
         "trained": False,
     },
     "Qwen25-VL-7B-Instruct-1000-trained": {
@@ -163,7 +163,7 @@ MODEL_REGISTRY = {
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Qwen25-VL-7B-Instruct-1000-trained.json",
         "batch_size": 24,
-        "generator_class": Qwen2VLForConditionalGeneration,
+        "generator_class": Qwen2_5_VLForConditionalGeneration,
         "trained": True,
     },
     "Qwen25-VL-7B-Instruct-10000-trained": {
@@ -172,7 +172,7 @@ MODEL_REGISTRY = {
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Qwen25-VL-7B-Instruct-10000-trained.json",
         "batch_size": 24,
-        "generator_class": Qwen2VLForConditionalGeneration,
+        "generator_class": Qwen2_5_VLForConditionalGeneration,
         "trained": True,
     },
     "Qwen25-VL-7B-Instruct-full-trained": {
@@ -181,7 +181,7 @@ MODEL_REGISTRY = {
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Qwen25-VL-7B-Instruct-full-trained.json",
         "batch_size": 24,
-        "generator_class": Qwen2VLForConditionalGeneration,
+        "generator_class": Qwen2_5_VLForConditionalGeneration,
         "trained": True,
     },
 }
