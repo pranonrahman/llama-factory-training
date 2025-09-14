@@ -24,7 +24,7 @@ def collate_fn(batch, processor, config):
         images=images,
         return_tensors="pt",
         padding=True,
-        max_length=1024,
+        max_length=2048,
         truncation=True,
     )
     inputs = {k: v.to("cuda") for k, v in inputs.items()}
