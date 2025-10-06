@@ -1,0 +1,65 @@
+# ============================================
+# Qwen2 2B LoRA SFT + Generation Combined Run
+# ============================================
+
+#################################################
+# Stage 1: Supervised Fine-Tuning (SFT)
+#################################################
+stage: sft
+model_name_or_path: /home/pranon/scratch/def-tahmedge/pretrained_models/Qwen2-VL-7B-Instruct
+trust_remote_code: true
+template: qwen2_vl
+
+### LoRA Configuration
+lora_target: ["q_proj", "v_proj", "o_proj"]
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+create_new_adapter: true
+finetuning_type: lora
+
+### Dataset Configuration
+dataset: sm-cc-sft-train
+eval_dataset: sm-cc-sft-test
+cutoff_len: 1024
+preprocessing_num_workers: 8
+#max_samples: 50   # Limit training samples if needed
+
+### Training Configuration
+output_dir: /home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen2_7b_SFT-3-epoch
+overwrite_output_dir: false
+do_train: true
+do_eval: true
+#do_generate: true
+
+per_device_train_batch_size: 4
+per_device_eval_batch_size: 4
+gradient_accumulation_steps: 2
+num_train_epochs: 3
+learning_rate: 0.00005
+optim: adamw_torch
+
+### Logging and Evaluation
+logging_steps: 10
+save_steps: 500
+eval_steps: 500
+save_strategy: steps
+save_total_limit: 10
+metric_for_best_model: eval_loss
+greater_is_better: false
+
+### System Config
+bf16: true
+gradient_checkpointing: true
+dataloader_num_workers: 4
+remove_unused_columns: false
+dataloader_pin_memory: true
+
+run_name: Qwen2_2b_SFT-3-epoch
+seed: 42
+
+max_new_tokens: 512
+temperature: 0.4
+top_p: 0.9
+top_k: 50
+do_sample: true
