@@ -108,5 +108,25 @@
             "rejected": "rejected",
             "images": "images"
         }
+    },
+    "sm-cc-sft-train": {
+      "file_name": "train-sft.json",
+      "format": "alpaca",
+      "columns": {
+        "input": "input",
+        "output": "output",
+        "images": "images",
+        "instruction": "instruction"
+      }
+    },
+    "sm-cc-sft-test": {
+      "file_name": "test-sft.json",
+      "format": "alpaca",
+      "columns": {
+        "input": "input",
+        "output": "output",
+        "images": "images",
+        "instruction": "instruction"
+      }
     }
 }
