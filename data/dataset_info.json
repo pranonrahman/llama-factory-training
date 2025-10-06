@@ -110,23 +110,23 @@
         }
     },
     "sm-cc-sft-train": {
-      "file_name": "train-sft.json",
-      "format": "alpaca",
+      "file_name": "../data/train-sft.json",
+      "ranking": false,
       "columns": {
-        "input": "input",
-        "output": "output",
+        "query": "input",
+        "response": "output",
         "images": "images",
-        "instruction": "instruction"
+        "prompt": "instruction"
       }
     },
     "sm-cc-sft-test": {
-      "file_name": "test-sft.json",
-      "format": "alpaca",
+      "file_name": "../data/test-sft.json",
+      "ranking": false,
       "columns": {
-        "input": "input",
-        "output": "output",
+        "query": "input",
+        "response": "output",
         "images": "images",
-        "instruction": "instruction"
+        "prompt": "instruction"
       }
     }
 }
