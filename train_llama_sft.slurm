@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=llama_instruct_32_1_epoch_full
+#SBATCH --job-name=llama_instruct_32_sft_2
 #SBATCH --gres=gpu:1              # request 1 GPU
 #SBATCH --cpus-per-task=8         # number of CPU cores
 #SBATCH --mem=48G                 # RAM
