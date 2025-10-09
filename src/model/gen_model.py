@@ -41,13 +41,13 @@ def generate_captions_batch(model, processor, batch_data):
 
 
 def generate_output(
-        config, dataset, processed_dataset, model, processor, trained_model: bool = False
+        config, dataset, processed_dataset, model, processor, trained_model: bool = False, few_shot: bool = False
 ):
     dataloader = DataLoader(
         dataset,
         batch_size=config["batch_size"],
         shuffle=False,
-        collate_fn=lambda b: collate_fn(b, processor, config),
+        collate_fn=lambda b: collate_fn(b, processor, config, few_shot),
     )
 
     idx = 0

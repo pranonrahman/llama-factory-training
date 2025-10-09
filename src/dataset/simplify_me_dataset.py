@@ -29,6 +29,83 @@ class SimplifyMeDataset(Dataset):
         return self.data_entries[idx]
 
 
+def get_few_shot_conversational_formatted_messages(text: str, role="user"):
+    if role == "user":
+        return [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Describe this image in simple terms."},
+                    {"type": "image", "image": "image1.jpg"}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": "A girl bounces on a large red ball."
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Describe this image in simple terms."},
+                    {"type": "image", "image": "image2.jpg"}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": "One man and two women wearing shorts, walk down the street."
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Describe this image in simple terms."},
+                    {"type": "image", "image": "image3.jpg"}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": "A cake cover is made to look like a wire birdcage. "
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Describe this image in simple terms."},
+                    {"type": "image", "image": "image4.jpg"}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": "A person is holding a blue Wii remote in a living room."
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Describe this image in simple terms."},
+                    {"type": "image", "image": "image5.jpg"}
+                ]
+            },
+            {
+                "role": "assistant",
+                "content": "A bottle of double wide India pale ale.sits in front of a window."
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Describe this image in simple terms."},
+                    {"type": "image", "image": "new_image.jpg"}
+                ]
+            }
+        ]
+    else:
+        return [
+            {
+                "content": [
+                    {"type": "text", "text": text},
+                ],
+                "role": role,
+            }
+        ]
+
+
 def get_conversational_formatted_messages(text: str, role="user"):
     if role == "user":
         return [
