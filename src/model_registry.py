@@ -72,7 +72,7 @@ MODEL_REGISTRY = {
         "trained_model_path": "",
         "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
         "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Llama-3.2-11B-Vision-fewshot.json",
-        "batch_size": 8,
+        "batch_size": 4,
         "generator_class": MllamaForConditionalGeneration,
         "trained": False,
     },
