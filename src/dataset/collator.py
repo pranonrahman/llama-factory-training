@@ -18,7 +18,7 @@ def collate_fn(batch, processor, config, few_shot):
     if not few_shot:
         images = [get_images(item["images"]) for item in batch]
     else:
-        images = [get_images(few_shot_images.append(item["images"][0])) for item in batch]
+        images = [get_images(few_shot_images + item["images"]) for item in batch]
 
     if not few_shot:
         prompts = [
