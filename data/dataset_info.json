@@ -128,5 +128,25 @@
         "images": "images",
         "prompt": "instruction"
       }
+    },
+    "sm-cc-sft-dpo-train": {
+      "file_name": "../data/train-dpo-sft.json",
+      "ranking": false,
+      "columns": {
+        "query": "input",
+        "response": "output",
+        "images": "images",
+        "prompt": "instruction"
+      }
+    },
+    "sm-cc-sft-dpo-test": {
+      "file_name": "../data/test-dpo-sft.json",
+      "ranking": false,
+      "columns": {
+        "query": "input",
+        "response": "output",
+        "images": "images",
+        "prompt": "instruction"
+      }
     }
 }
