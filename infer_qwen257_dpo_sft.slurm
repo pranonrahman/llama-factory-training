@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=gen_qwen257_dpo_sft
-#SBATCH --gres=nvidia_h100_80gb_hbm3_3g.40gb # request 1 GPU
+#SBATCH --gpus=nvidia_h100_80gb_hbm3_3g.40gb     # request 1 GPU
 #SBATCH --cpus-per-task=1         # number of CPU cores
 #SBATCH --mem=30G                 # RAM
 #SBATCH --time=0-12:00            # walltime (D-HH:MM)
