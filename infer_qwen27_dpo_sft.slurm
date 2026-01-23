@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=gen_qwen27_dpo_sft
 #SBATCH --gpus=nvidia_h100_80gb_hbm3_3g.40gb:2     # request 2 GPU
-#SBATCH --cpus-per-task=1         # number of CPU cores
-#SBATCH --mem=30G                 # RAM
+#SBATCH --cpus-per-task=6         # number of CPU cores
+#SBATCH --mem=48G                 # RAM
 #SBATCH --time=0-12:00            # walltime (D-HH:MM)
 #SBATCH --output=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.out
 #SBATCH --error=/home/pranon/scratch/def-tahmedge/pranon/experiments/logs/%x-%j.err
