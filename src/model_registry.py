@@ -247,6 +247,15 @@ MODEL_REGISTRY = {
         "generator_class": Qwen2_5_VLForConditionalGeneration,
         "trained": True,
     },
+    "Qwen25-VL-7B-dpo-sft": {
+        "base_model_path": "/home/pranon/scratch/def-tahmedge/pretrained_models/Qwen2.5-VL-7B-Instruct",
+        "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen25_7b_dpo_SFT-3-epoch-2",
+        "dataset_path": "/home/pranon/projects/def-tahmedge/pranon/llama-factory-training/data/test-cc.json",
+        "output_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/gen-captions/Qwen25-VL-7B-dpo-sft.json",
+        "batch_size": 16,
+        "generator_class": Qwen2_5_VLForConditionalGeneration,
+        "trained": True,
+    },
     "Qwen25-VL-7B-Instruct-1000-trained": {
         "base_model_path": "/home/pranon/scratch/def-tahmedge/pretrained_models/Qwen2.5-VL-7B-Instruct",
         "trained_model_path": "/home/pranon/scratch/def-tahmedge/pranon/experiments/Qwen25_7b-3-epoch-1000",
