@@ -76,7 +76,7 @@ def generate_output(
 def get_model(config, trained_model: bool = False):
     # Load processor from base model (which should have the chat template)
     processor = AutoProcessor.from_pretrained(
-        config["base_model_path"], trust_remote_code=True, use_fast=True
+        config["base_model_path"], trust_remote_code=True, use_fast=True, padding_side='left'
     )
 
     model = config["generator_class"].from_pretrained(
